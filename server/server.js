@@ -13,4 +13,10 @@ io.on("connection", (socket) => {
     io.emit("receive-disp-list", list);
     console.log("Broadcasted the signal above to monitor");
   });
+
+  socket.on("send-prepared-signal", (signalPackage) => {
+    console.log("Received prepared from server");
+    io.emit("receive-prepared-signal", signalPackage);
+    console.log("Broadcasted the signal to client");
+  });
 });
